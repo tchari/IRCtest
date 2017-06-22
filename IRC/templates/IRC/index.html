@@ -10,18 +10,20 @@
 {% block sidebarLinks %}
 	{% if user.is_authenticated %}
 		<li><a href="#">Home</a></li>
-		<li><a href="#">New Assessment</a></li>
+		<li><a href="{% url 'newAssessment'%}">New Assessment</a></li>
 		<li><a href="#">Approved Assessments</a></li>
 		<li><a href="#">Open Assessments</a></li>
 	{% endif %}
 {% endblock %}
+
 {% block content %}
 	{%if user.is_authenticated %}
 		
-		<h2>Index Content</h3>
+		<h2>Index Content</h2>
 		{% for i in assessmentList %}
 			<p>{{ i.site }}
 		{% endfor %}
+
 	{% else %}
 		<a href="{% url 'login'%}"> Login Here</a><br>
 	{% endif %}
